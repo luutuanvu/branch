@@ -1,69 +1,79 @@
-<?php ob_start(); ?>
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Tuan Vu</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Làm web thương mại điện tử với shopify và wordpress, phát triển thương hiệu cá nhân, blog cá nhân, đặt chỗ online cho nhà hàng và khách sạn." />
+	<meta name="keywords" content="Freelancer, shopify, wordpress, web freelancer, thương mại điện tử" />
+    <meta name="author" content="Tuan Vu" />
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="Freelancer website"/>
+	<meta property="og:url" content="https://vutea.vn"/>
+	<meta property="og:site_name" content="Tuan Vu Blog"/>
+	<meta content="https://luutuanvu.github.io/profile/images/about.jpg" property="og:image" itemprop="thumbnailUrl">
+	<meta property="og:description" content="Làm web thương mại điện tử với shopify và wordpress, phát triển thương hiệu cá nhân, blog cá nhân, đặt chỗ online cho nhà hàng và khách sạn."/>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="google-site-verification" content="iKJdQFZdK-KSnoh1b6oygwCSuGlQIxcDOTvMxsWq2P4" />
-        <?php if(is_singular('restaurant') || is_home() || is_front_page()){?>
-            <meta name="title" content="<?php echo get_field('top_seo_title','top_options');?>">
-            <meta name="description" content="<?php echo get_field('top_seo_content','top_options');?>">
-        <?php } ?>
-        <?php wp_head(); ?>
-        <?php
-        global $post;
-        $page_name = $post->post_name;
-        $open_sidebar_page = ['booking-confirm', 'payment-confirm', 'booking-notice'];
-        if(is_home() || is_front_page()){
-            ?>
-            <title>釣りたべ-釣った魚を調理してくれる店を探せる</title>
-        <?php } ?>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163769354-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+	<meta name="twitter:title" content="Freelancer website" />
+	<meta name="twitter:url" content="https://vutea.vn" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="images/favicon.png">
 
-            gtag('config', 'UA-163769354-1');
-        </script>
-    </head>
+	<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
+	<?php wp_head(); ?>
+	</head>
+	<body>
 
-<body <?php body_class(); ?>>
-<?php if(is_singular('restaurant')){?>
-    <header>
-        <h1><a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_template_directory_uri() .'/assets/themes/img/logo.svg'; ?>" width="100%"></a></h1>
-    </header>
-    <div class="overlay" id="js__overlay"></div>
-    <nav class="side-menu" id="js__sideMenu">
-        <?php
-        switch($page_name){
-            case 'booking-confirm':
-                booking_confirm();
-                break;
-            case 'payment-confirm':
-                payment_confirm();
-                break;
-            case 'booking-notice':
-                booking_success();
-                break;
-            default:
-                echo booking_form();
-                break;
-        }
-        ?>
-    </nav>
-    <div class="side-menu-btn" id="js__sideMenuBtn">
-        <div class="ellipsis-v">
-            <span class="point top"></span>
-            <span class="point mid"></span>
-            <span class="point bot"></span>
-        </div>
-        <p class="ellipsis-txt">予約する</p>
-    </div>
-<?php }?>
-    <div class="wrapper <?php echo is_home() || is_front_page() ? 'top-page':''; ?>">
-    <?php if(is_singular('restaurant')){?><div class="bg-dark"></div><?php }?>
-<?php echo !is_singular('restaurant') ? fishing_header() : ''; ?>
+	<nav id="colorlib-main-nav" role="navigation">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
+		<div class="js-fullheight colorlib-table">
+			<div class="colorlib-table-cell js-fullheight">
+				<div class="row">
+					<div class="col-md-12">
+						<ul>
+							<li class="active"><a href="index.html">About Me</a></li>
+							<li><a href="services.html">Services</a></li>
+							<li><a href="work.html">Work</a></li>
+							<li><a href="https://vutea.vn/lien-he">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="head-title">Works</h2>
+						<div class="gallery-container">
+							<a href="images/work-1.png" class="gallery image-popup-link text-center" style="background-image: url(images/work-1.png);">
+								<span><i class="icon-search3"></i></span>
+							</a>
+							<a href="images/work-2.png" class="gallery image-popup-link text-center" style="background-image: url(images/work-2.png);">
+								<span><i class="icon-search3"></i></span>
+							</a>
+							<a href="images/work-3.png" class="gallery image-popup-link text-center" style="background-image: url(images/work-3.png);">
+								<span><i class="icon-search3"></i></span>
+							</a>
+							<a href="images/work-4.png" class="gallery image-popup-link text-center" style="background-image: url(images/work-4.png);">
+								<span><i class="icon-search3"></i></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	
+	<div id="colorlib-page">
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="colorlib-navbar-brand">
+							<a class="colorlib-logo" href="index.html"><span>Ta</span><span>Vu</span></a>
+						</div>
+						<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+					</div>
+				</div>
+			</div>
+		</header>

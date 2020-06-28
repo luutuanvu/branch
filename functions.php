@@ -1,26 +1,7 @@
 <?php
-session_start();
-global $date;
-$date = new DateTime("now", new DateTimeZone('Asia/Tokyo'));
-//date_default_timezone_set('Asia/Tokyo');
-/*---------------------- API KEYS & Thid-Party ------------------------------*/
-
-// GOOGLE MAP API
-define('MAP_API_KEY', 'AIzaSyBcfkpMaz14BwINvFMb6lZMxhHtCQ53d7I');
-define('CURRENCY', '¥');
-/*---------------------- /API KEYS & Third-Party ------------------------------*/
-
-// uncomment in production
-// error_reporting(0);
-
-// Apply Google Map API Key ///////////////////////////////////////
-add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-function my_acf_google_map_api($api)
-{
-    $api['key'] = MAP_API_KEY;
-    return $api;
+if(!define('ABS_PATH')){
+   // return;
 }
-
 // Basic theme setup ////////////////////////////////////////////////////
 if (!function_exists('mf_setup_theme')) :
     add_action('after_setup_theme', 'mf_setup_theme');
@@ -56,6 +37,7 @@ if(!function_exists('admin_script')){
 }
 if (!function_exists('mf_files')) :
     add_action('wp_enqueue_scripts', 'mf_files');
+
     function mf_files()
     {
         wp_enqueue_script('jquery');
@@ -66,16 +48,16 @@ if (!function_exists('mf_files')) :
             'checkout_url' => home_url('/check-out'),
             'pay_jp_pk' => pk
         ]);
+    
         wp_enqueue_style('font-awesome-css', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-        wp_enqueue_style('rest-css', get_theme_file_uri('assets/themes/css/reset.css'));
-        wp_enqueue_style('nav-css', get_theme_file_uri('assets/themes/css/nav.css'));
-        wp_enqueue_style('slick.css', get_theme_file_uri('assets/themes/css/slick.css'));
-        wp_enqueue_style('slick-theme.css', get_theme_file_uri('assets/themes/css/slick-theme.css'));
-        wp_enqueue_style('bootstrap.min.css', get_theme_file_uri('assets/themes/css/bootstrap.min.css'));
-        wp_enqueue_style('bootstrap-datetimepicker.css', get_theme_file_uri('assets/themes/css/bootstrap-datetimepicker.css'));
-        wp_enqueue_style('modal.css', get_theme_file_uri('assets/themes/css/modal.css'));
-        wp_enqueue_style('style-css', get_theme_file_uri('assets/themes/css/style.css'));
-
+        wp_enqueue_style('animate', get_theme_file_uri('assets/css/animate.css'));
+        wp_enqueue_style('icomoon', get_theme_file_uri('assets/css/icomoon.css'));
+        wp_enqueue_style('bootstrap', get_theme_file_uri('assets/css/bootstrap.css'));
+        wp_enqueue_style('owl.carousel.min', get_theme_file_uri('assets/css/owl.carousel.min.css'));
+        wp_enqueue_style('owl.theme.default', get_theme_file_uri('assets/css/owl.theme.default.min.css'));
+        wp_enqueue_style('magnific-popup', get_theme_file_uri('assets/css/magnific-popup.css'));
+        wp_enqueue_style('style', get_theme_file_uri('assets/css/style.css'));
+    
 
 
         //wp_enqueue_style('mf-main', get_stylesheet_uri());
